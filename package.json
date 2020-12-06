@@ -1,0 +1,21 @@
+{
+  "name": "node-red-contrib-chronodrive-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "prettier": {
+    "singleQuote": true
+  },
+  "node-red": {
+    "nodes": {
+      "chronodrive-add-to-cart": "chronodrive-add-to-cart.js"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
+}

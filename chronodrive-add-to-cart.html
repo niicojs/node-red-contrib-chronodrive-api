@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  RED.nodes.registerType('chronodrive-add-to-cart', {
+    category: 'shopping',
+    color: '#DA291C',
+    defaults: {
+      productId: { value: '{{payload}}', required: true },
+    },
+    credentials: {
+      numclient: { type: 'text' },
+      password: { type: 'password' },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'font-awesome/fa-shopping-cart',
+    label: function () {
+      return this.name || 'chronodrive';
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="chronodrive-add-to-cart">
+  <div class="form-row">
+    <label for="node-input-numclient"
+      ><i class="fa fa-user"></i> Numéro client</label
+    >
+    <input type="text" id="node-input-numclient" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-password"
+      ><i class="fa fa-key"></i> Mot de passe</label
+    >
+    <input type="password" id="node-input-password" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-productId"
+      ><i class="fa fa-tag"></i> ID Produit</label
+    >
+    <input type="text" id="node-input-productId" placeholder="" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="chronodrive-add-to-cart">
+  <p>Permet de se connecter à Chronodrive et de remplir son panier</p>
+</script>
