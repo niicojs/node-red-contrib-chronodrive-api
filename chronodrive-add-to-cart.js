@@ -13,9 +13,9 @@ module.exports = function (RED) {
           productId = mustache.render(productId, msg);
         }
         const { numclient, password } = node.credentials;
+        
         const api = new ChronoApi();
         const user = await api.login(numclient, password);
-
         const result = await api.addToCart(productId);
 
         send({ ...msg, productId, chronoUser: user, payload: result });
@@ -23,7 +23,6 @@ module.exports = function (RED) {
       } catch (e) {
         done(e);
       }
-      //})();
     });
   }
   RED.nodes.registerType('chronodrive-add-to-cart', ChronoApiNode, {

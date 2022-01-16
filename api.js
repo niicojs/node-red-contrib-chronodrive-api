@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const qs = require('querystring');
+const { URLSearchParams } = require('url');
 
 class ChronoApi {
   constructor() {
@@ -18,11 +18,11 @@ class ChronoApi {
   async login(username, password) {
     const response = await this.http.post(
       '/mobile/ws/login',
-      qs.stringify({
+      new URLSearchParams({
         v2: true,
         login: username,
         password,
-      })
+      }).toString()
     );
     if (response.status !== 200) throw new Error(response.statusText);
     this.token = response.data.token;
